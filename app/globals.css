@@ -19,8 +19,109 @@
   }
 }
 
+/* SearchForm Styles */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-wrapper .InputContainer {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0 10px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.search-wrapper .input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 0.95em;
+  padding-left: 10px;
+  background: transparent;
+}
+
+.search-wrapper .labelforsearch {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.search-wrapper .searchIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.search-wrapper .clearButton {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: color 0.2s;
+}
+
+.search-wrapper .clearButton:hover {
+  color: #f97316;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .search-wrapper .InputContainer {
+    height: 40px;
+    max-width: 280px;
+  }
+
+  .search-wrapper .input {
+    font-size: 0.85em;
+  }
+}
+
+
+.pattern{
+    background-image: linear-gradient(
+    to right,
+    transparent 30.5%,
+    rgba(251,232,67,0.2) 49.5%,
+    rgba(251,232,67,0.6) 50.5%,
+    transparent 50.5%
+   );
+   background-size: 5% 100%;
+   background-position: center;
+   background-repeat: repeat-x;
+}
+.heading {
+  @apply uppercase bg-black text-white text-center mx-auto 
+         w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mb-5 rounded-2xl
+         px-2 py-2 sm:px-3 sm:py-3
+         text-[18px] leading-[26px]
+         sm:text-[30px] sm:leading-[30px]
+         md:text-[40px] md:leading-[45px]
+         lg:text-[45px] lg:leading-[48px];
+}
+
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/font/Work_Sans/WorkSans-VariableFont_wght.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'MyCustomFont', Arial, Helvetica, sans-serif;
 }
+
+
