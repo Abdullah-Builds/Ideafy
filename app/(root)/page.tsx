@@ -2,6 +2,7 @@ import SearchForm from "../components/SearchForm";
 import Card from "../components/Card";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { auth } from "@/auth";
 
 export default async function Home({
   searchParams,
@@ -9,13 +10,12 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
 
+  const session = await auth();
+console.log("SESSION:", JSON.stringify(session, null, 2));
 
   const query = (await searchParams).query;
   const params = {search:query|| ""};
-  const  post  = await sanityFetch({ query: STARTUPS_QUERY,params }) || {};
-  const posts = Array.isArray(post.data) ? post.data : [];
-  
-
+  const  posts  = await sanityFetch(STARTUPS_QUERY,params ) || {};
   return (
     <>
       <section className="bg-pink-600 h-auto pt-10 pb-6 pattern">
@@ -25,10 +25,9 @@ export default async function Home({
         <p className="text-amber-50 text-center pb-4">
           Submit ideas ,Vote on pitch and Get Noticed in Virtual Competition
         </p>
-
-        <SearchForm query={query} />
+        <SearchForm/>
+        
       </section>
-
       <section className="mt-4 px-2 py-2">
         <p className="font-bold text-2xl text-center">
           {query ? `Search Results for ${query}` : "All Startups"}
@@ -43,7 +42,6 @@ export default async function Home({
           </div>
         </div>
       </section>
-      <SanityLive />
     </>
   );
 }

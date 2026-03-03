@@ -9,6 +9,7 @@ export type StartupType = Omit<Startup, "author"> & {author?:Author};
 const Card = ({ post }:{post : StartupType} ) => {
   const {
     _createdAt,
+    _id,
     views,
     author,
     category,
@@ -16,7 +17,6 @@ const Card = ({ post }:{post : StartupType} ) => {
     description,
     title,
   } = post;
-
 
   return (
     <div className="max-w-xs w-full bg-white border-6 border-black rounded-2xl shadow-md p-4 transition-all  duration-300  hover:shadow-lg hover:bg-pink-50">
@@ -30,8 +30,6 @@ const Card = ({ post }:{post : StartupType} ) => {
       <span>{views}</span>
     </div>
       </div>
-
-
 
       {/* Author + Title */}
       <div className="flex items-center justify-between mb-2">
@@ -77,7 +75,7 @@ const Card = ({ post }:{post : StartupType} ) => {
             {category}
           </Link>
         </span>
-        <Link href={`/startup/${author?._id}`}>
+        <Link href={`/startup/${_id}`}>
         <button className="px-4 py-1 text-sm font-semibold border border-gray-800 rounded-full hover:bg-gray-800 hover:text-white transition">
           Details
         </button>

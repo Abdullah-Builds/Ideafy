@@ -6,3 +6,7 @@ export default function format_date(date:any){
       day : 'numeric',
     })
 }
+
+export function parseServerActionResponse<T>(response : T){
+  return JSON.parse(JSON.stringify(response))
+}

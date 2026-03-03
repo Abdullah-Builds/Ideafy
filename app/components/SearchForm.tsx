@@ -3,7 +3,6 @@ import Form from 'next/form'
 import SearchFormReset from './SearchFormReset';
 
 const SearchForm = ({query}:{query? : string}) => {
-  console.log(query)
 
   return (
     <div className="search-wrapper">

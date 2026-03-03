@@ -7,7 +7,6 @@ const SearchFormReset = () => {
     
   const reset =()=>{
     const input = document.querySelector('.InputContainer') as HTMLFormElement
-    console.log("hello")
     if(input) input.reset()
   }
 

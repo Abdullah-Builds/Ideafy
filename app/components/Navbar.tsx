@@ -5,7 +5,6 @@ import { redirect } from 'next/dist/server/api-utils';
 
 const Navbar = async () => {
     const session = await auth();
-    console.log(session)
     return (
         <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
             <nav className='flex justify-between items-center'>
@@ -16,7 +15,7 @@ const Navbar = async () => {
                 <div className='flex items-baseline gap-5 ml-auto'>
                     {session && session?.user ? (
                         <>
-                            <Link href="/logo.png">
+                            <Link href="/startup/create">
                                 <span>Create</span>
                             </Link>
 
